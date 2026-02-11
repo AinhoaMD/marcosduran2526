@@ -1,9 +1,9 @@
 <template>
-  <nav class="navbar navbar-dark sticky-top navbar-expand-lg" style="background-color: #1F2A44;">
+  <nav class="navbar navbar-dark bg-primary sticky-top navbar-expand-lg">
 
     <div class="container-fluid">
       <!-- Marca o logo -->
-      <a class="navbar-brand" href="#"><img src="../assets/porfavor.svg" alt="logo" width="50"></a>
+      <a class="navbar-brand" href="#"><img src="../assets/porfavor.svg" alt="logo" width="100"></a>
 
       <!-- Botón de hamburguesa en pantallas pequeñas -->
       <button
@@ -80,13 +80,13 @@
         <div class="dropdown ms-auto">
           <button
           class="btn btn-primary dropdown-toggle d-flex align-items-center gap-2"
-          style="background-color: #1F2A44; border-color: white;"
+          style="border-color: white;"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
           >
           <p class=" mb-0 ">{{userName}}</p>
-          <i class="bi bi-person fs-4" style="background-color: #1F2A44;"></i>
+          <i class="bi bi-person fs-4"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <!-- Mostra “Acceso/Registro” se NON hai usuario logueado -->
@@ -187,9 +187,5 @@ function logout() {
 .navbar-dark .nav-link:hover,
 .navbar-dark .nav-link:focus {
   color: #fff; /* blanco intenso al pasar el ratón */
-}
-
-.navbar.bg-danger {
-  background-color:  #1F2A44!important; /* azul marino */
 }
 </style>
