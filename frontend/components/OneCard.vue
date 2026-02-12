@@ -82,11 +82,20 @@
                                 <i class="bi bi-cart3"></i> Añadir a la Cesta
                             </button>
 
-                            <!-- Reservar: solo si está disponible -->
+                            <!-- Reservar: solo si está disponible y logueado -->
                             <button 
-                                v-if="vehiculo.estado === 'disponible'"
+                                v-if="vehiculo.estado === 'disponible' && isLogueado"
                                 class="btn btn-warning" 
                                 @click="mostrarModalReserva = true"
+                            >
+                                <i class="bi bi-bookmark"></i> Reservar
+                            </button>
+
+                            <!-- Reservar deshabilitado si no logueado -->
+                            <button 
+                                v-if="vehiculo.estado === 'disponible' && !isLogueado"
+                                class="btn btn-warning disabled"
+                                disabled
                             >
                                 <i class="bi bi-bookmark"></i> Reservar
                             </button>
@@ -109,6 +118,16 @@
                             <span v-if="vehiculo.estado === 'reservado' && !isAdmin" class="btn btn-secondary disabled">
                                 <i class="bi bi-lock"></i> Reservado - No disponible
                             </span>
+                        </div>
+
+                        <!-- Aviso: debes iniciar sesión para reservar -->
+                        <div
+                            v-if="vehiculo.estado === 'disponible' && !isLogueado"
+                            class="alert alert-info mt-3"
+                        >
+                            <p class="mb-1">Debes iniciar sesión o registrarte para reservar:</p>
+                            <a href="/login" class="d-block">Iniciar Sesión</a>
+                            <a href="/clientes" class="d-block">Registro</a>
                         </div>
                     </div>
                 </div>
@@ -163,8 +182,10 @@ const router = useRouter();
 const cestaStore = useCestaStore();
 const vehiculo = ref(null);
 
-// Admin check
+// Login / Admin check
 const isAdmin = ref(sessionStorage.getItem('isAdmin') === 'true');
+const isUsuario = ref(sessionStorage.getItem('isUsuario') === 'true');
+const isLogueado = ref(isUsuario.value || isAdmin.value);
 
 // Modal reserva
 const mostrarModalReserva = ref(false);
