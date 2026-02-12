@@ -23,7 +23,7 @@
     </div>
 
     <!-- Tabla de noticias -->
-    <table class="table table-borderless mt-3 table-striped table-primary">
+    <table class="table table-borderless mt-3 table-striped">
       <tbody>
         <template v-for="noticia in noticias" :key="noticia.id">
           <tr>
@@ -37,7 +37,7 @@
           <tr>
             <td>
               <span>
-                {{ isExpanded[noticia.id] ? noticia.contenido : (noticia.contenido.length > 0 ? noticia.contenido.slice(0, 200) + '...' : noticia.contenido) }}
+                {{ isExpanded[noticia.id] ? noticia.contenido : (noticia.contenido.length > 200 ? noticia.contenido.slice(0, 200) + '...' : noticia.contenido) }}
               </span>
               <div class="float-end">
                 <a v-if="noticia.contenido.length > 200" href="#" @click.prevent="toggleExpand(noticia.id)" class="text-decoration-none me-3">
