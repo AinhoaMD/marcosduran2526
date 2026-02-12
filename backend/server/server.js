@@ -12,6 +12,7 @@ import articulosRoutes from "./articulosRoutes.js"; // ruta al router backend
 import contactoRoutes from "./contactoRoutes.js"
 import Stripe from "stripe";
 import facturaRoutes from "./facturaRoutes.js";
+import empleadoRoutes from "./empleadoRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -58,6 +59,9 @@ app.use("/api/facturas", facturaRoutes);
 
 // Rutas de contacto
 app.use("/api/contacto", contactoRoutes);
+
+// Rutas de empleados
+app.use("/api/empleados", empleadoRoutes);
 
 
 // Configuración de CORS modificado para correo

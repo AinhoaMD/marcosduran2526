@@ -15,6 +15,7 @@ import CesTa from "../../frontend/components/CesTa.vue";
 import PaymentSuccess from "../../frontend/components/PaymentSuccess.vue";
 import PaymentCancel from "../../frontend/components/PaymentCancel.vue";
 import OneCard from "../../frontend/components/OneCard.vue";
+import Empleado from "../../frontend/components/Empleado.vue";
 
 
 const routes = [
@@ -97,6 +98,11 @@ const routes = [
         path: '/ventas/:id',
         name: 'OneCard',
         component: OneCard
+    },
+    {
+        path: '/empleados',
+        name: 'Empleado',
+        component: Empleado
     },
     
     
