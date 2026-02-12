@@ -14,6 +14,7 @@ import BusCar from "../../frontend/components/BusCar.vue";
 import CesTa from "../../frontend/components/CesTa.vue";
 import PaymentSuccess from "../../frontend/components/PaymentSuccess.vue";
 import PaymentCancel from "../../frontend/components/PaymentCancel.vue";
+import OneCard from "../../frontend/components/OneCard.vue";
 
 
 const routes = [
@@ -91,7 +92,12 @@ const routes = [
         path: '/PaymentCancel',
         name: 'PaymentCancel',
         component: PaymentCancel
-    }
+    },
+    {
+        path: '/ventas/:id',
+        name: 'OneCard',
+        component: OneCard
+    },
     
     
     
