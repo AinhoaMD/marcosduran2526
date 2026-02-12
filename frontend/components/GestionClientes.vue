@@ -476,6 +476,8 @@ const clientesPaginados = computed(() => {
 const cargarClientes = async() => {
 
       clientes.value = await getClientes(mostrarHistorico.value)
+      console.log(clientes.value)
+      console.log(mostrarHistorico.value)
         numClientes.value = clientes.value.length;  // Actualiza el nº total de clientes
         currentPage.value = 1;  // Reiniciar a la 1era página al cargar
       Swal.fire({

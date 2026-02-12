@@ -5,6 +5,7 @@ const API_URL = "http://localhost:3000/clientes";
 //Obtener la lista de clientes desde la API
 
 export const getClientes = async(mostrarHistorico) => {
+    
     let url = `${API_URL}?_sort=apellidos`;
 
     if (!mostrarHistorico) {
@@ -14,7 +15,8 @@ export const getClientes = async(mostrarHistorico) => {
         // Todos los clientes, sin filtrar por histórico
         url += ``;
     }
-    const response = await axios.get(API_URL)
+    
+    const response = await axios.get(url)
     console.log(response.data);
     
     return response.data;
